@@ -150,9 +150,9 @@ if (checkboxMapStyle) {
 const descriptions = {
   "verger1": "Faire les côtés avec une débroussailleuse",
   "verger2": "Faire les côtés avec une débroussailleuse",
-  "ravitoTrevillyHuella": "28 - 8<sup>e</sup> km<br>48 - 8<sup>e</sup> km",
-  "ravitoVirageStGoazec": "37 - 12<sup>e</sup> km<br>41 - 11<sup>e</sup> km<br>48 - 17<sup>e</sup> km<br><br>37 - 14<sup>e</sup> km<br>41 - 16<sup>e</sup> km<br>48 - 22<sup>e</sup> km",
-  "ravitoCudel": "20 - 10<sup>e</sup> km<br>28 - 16<sup>e</sup> km<br>37 - 26<sup>e</sup> km<br>41 - 30<sup>e</sup> km<br>48 - 36<sup>e</sup> km<br>",
+  "ravitoTerrePleinBoisBernard": "22 - 12<sup>e</sup> km<br>29 - 13<sup>e</sup> km<br>35 - 13<sup>e</sup> km<br>41 - 13<sup>e</sup> km<br>50 - 13<sup>e</sup> km",
+  "ravitoBallTrap": "35 - 20<sup>e</sup> km<br>41 - 21<sup>e</sup> km<br>50 - 26<sup>e</sup> km",
+  "ravitoTrevillyIzela": "29 - 21<sup>e</sup> km<br>35 - 27<sup>e</sup> km<br>41 - 31<sup>e</sup> km<br>50 - 39<sup>e</sup> km",
 };
 
 const listePortions = [

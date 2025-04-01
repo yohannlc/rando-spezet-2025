@@ -23,6 +23,11 @@ let ravitoTrevilyHuella = [
     48.176575808627916
 ];
 
+let ravitoTrevillyIzela = [
+    -3.760709326710071,
+    48.17443565967787
+];
+
 let ravitoKerdaffret = [
     -3.7496976272579445,
     48.1897297331804
@@ -50,4 +55,14 @@ let ravitoKerbellec = [
 let ravitoMarion = [
     -3.6617298619966903,
     48.19964633452582
+];
+
+let ravitoTerrePleinBoisBernard = [
+    -3.695572422027368,
+    48.15197184146865
+];
+
+let ravitoKerdaffretBas = [
+    -3.7516606126768295,
+    48.1898563128137
 ];
