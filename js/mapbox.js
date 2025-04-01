@@ -29,7 +29,7 @@ function createMap(myMapStyle) {
     }
     addCircuitsVTT();
     addRavitosVTT();
-    addFlechesCircuitsVTT();
+    // addFlechesCircuitsVTT();
     if (type == "all") {
       addFlechesCircuitsMarche();
     }

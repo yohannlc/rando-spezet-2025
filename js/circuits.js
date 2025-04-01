@@ -2,7 +2,6 @@ function addCircuitsVTT() {
     if ( mapStyle == 'outdoor') {
         for (let i = 0; i < listeCircuitsVtt.length; i++) {
             drawPortion(listeCircuitsVtt[i].id, "circuit", listeCircuitsVtt[i].coords, lineWidthCircuit, lineOpacityCircuit, listeCircuitsVtt[i].colorOut);
-            console.log(listeCircuitsVtt[i].colorOut)
         }
     } else {
         for (let i = 0; i < listeCircuitsVtt.length; i++) {

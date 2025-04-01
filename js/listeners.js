@@ -28,25 +28,29 @@ legendItemsVTT.forEach(function(item, index) {
   item.addEventListener('click', function() {    
     switch(index) {
       case 0:
-        tabStatesCircuits.stateCircuit20[0] = !tabStatesCircuits.stateCircuit20[0];
-        setOnlyOneTrace('circuit20', tabStatesCircuits.stateCircuit20[0], item);
+        tabStatesCircuits.stateCircuitVtt0[0] = !tabStatesCircuits.stateCircuitVtt0[0];
+        setOnlyOneTrace('circuitVtt0', tabStatesCircuits.stateCircuitVtt0[0], item);
         break;
       case 1:
-        tabStatesCircuits.stateCircuit28[0] = !tabStatesCircuits.stateCircuit28[0];
-        setOnlyOneTrace('circuit28', tabStatesCircuits.stateCircuit28[0], item);
+        tabStatesCircuits.stateCircuitVtt1[0] = !tabStatesCircuits.stateCircuitVtt1[0];
+        setOnlyOneTrace('circuitVtt1', tabStatesCircuits.stateCircuitVtt1[0], item);
         break;
       case 2:
-        tabStatesCircuits.stateCircuit36[0] = !tabStatesCircuits.stateCircuit36[0];
-        setOnlyOneTrace('circuit36', tabStatesCircuits.stateCircuit36[0], item);
+        tabStatesCircuits.stateCircuitVtt2[0] = !tabStatesCircuits.stateCircuitVtt2[0];
+        setOnlyOneTrace('circuitVtt2', tabStatesCircuits.stateCircuitVtt2[0], item);
         break;
       case 3:
-        tabStatesCircuits.stateCircuit41[0] = !tabStatesCircuits.stateCircuit41[0];
-        setOnlyOneTrace('circuit41', tabStatesCircuits.stateCircuit41[0], item);
+        tabStatesCircuits.stateCircuitVtt3[0] = !tabStatesCircuits.stateCircuitVtt3[0];
+        setOnlyOneTrace('circuitVtt3', tabStatesCircuits.stateCircuitVtt3[0], item);
         break;
       case 4:
-        tabStatesCircuits.stateCircuit48[0] = !tabStatesCircuits.stateCircuit48[0];
-        setOnlyOneTrace('circuit48', tabStatesCircuits.stateCircuit48[0], item);
-        break; 
+        tabStatesCircuits.stateCircuitVtt4[0] = !tabStatesCircuits.stateCircuitVtt4[0];
+        setOnlyOneTrace('circuitVtt4', tabStatesCircuits.stateCircuitVtt4[0], item);
+        break;
+      case 5:
+        tabStatesCircuits.stateCircuitVtt5[0] = !tabStatesCircuits.stateCircuitVtt5[0];
+        setOnlyOneTrace('circuitVtt5', tabStatesCircuits.stateCircuitVtt5[0], item);
+        break;
       default:
         return;
     }
@@ -67,16 +71,16 @@ if (type === "all") {
     item.addEventListener('click', function() {    
       switch(index) {
         case 0:
-          tabStatesCircuits.stateCircuit8[0] = !tabStatesCircuits.stateCircuit8[0];
-          setOnlyOneTrace('circuit8', tabStatesCircuits.stateCircuit8[0], item);
+          tabStatesCircuits.stateCircuitMarche2[0] = !tabStatesCircuits.stateCircuitMarche2[0];
+          setOnlyOneTrace('circuitMarche2', tabStatesCircuits.stateCircuitMarche2[0], item);
           break;
         case 1:
-          tabStatesCircuits.stateCircuit13[0] = !tabStatesCircuits.stateCircuit13[0];
-          setOnlyOneTrace('circuit13', tabStatesCircuits.stateCircuit13[0], item);
+          tabStatesCircuits.stateCircuitMarche1[0] = !tabStatesCircuits.stateCircuitMarche1[0];
+          setOnlyOneTrace('circuitMarche1', tabStatesCircuits.stateCircuitMarche1[0], item);
           break;
         case 2:
-          tabStatesCircuits.stateCircuit17[0] = !tabStatesCircuits.stateCircuit17[0];
-          setOnlyOneTrace('circuit17', tabStatesCircuits.stateCircuit17[0], item);
+          tabStatesCircuits.stateCircuitMarche0[0] = !tabStatesCircuits.stateCircuitMarche0[0];
+          setOnlyOneTrace('circuitMarche0', tabStatesCircuits.stateCircuitMarche0[0], item);
           break;
         default:
           return;

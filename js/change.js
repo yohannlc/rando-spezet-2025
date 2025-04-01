@@ -5,7 +5,7 @@ function setOnlyOneTrace(circuitName, circuitState, circuitItem) {
     
     for (let i of Object.values(tabStatesCircuits)) { // Pour chaque circuit
         if (i[1] != circuitName) { // Si le circuit n'est pas celui en argument
-            if (!(type !="all" && (i[1] == "circuit8" || i[1] == "circuit13" || i[1] == "circuit17"))) {
+            if (!(type !="all" && (i[1] == "circuitMarche2" || i[1] == "circuitMarche1" || i[1] == "circuitMarche0"))) {
                 changeCircuitState(i[1], lineOpacityBackCircuit, lineWidthCircuit);
             }
         }
@@ -15,55 +15,74 @@ function setOnlyOneTrace(circuitName, circuitState, circuitItem) {
 function changeLegend() {
     const divLegend = document.getElementById("divLegendId");
     const divParams = document.getElementById("divParamsId");
-
     var divs = document.getElementsByClassName('legend-circuit');
+    
+    const applyBackgroundColor = (element, color) => {
+        element.getElementsByTagName('span')[0].setAttribute('style', `background-color: ${color}; height: 3px;`);
+    };
 
+    const updateCircuitText = (div, circuit) => {
+        let elevationRounded = Math.round(circuit.elevation);
+        div.innerHTML = `<span style="background-color: ${circuit.colorOut}; height: 3px;"></span> ${circuit.length} km &#8599;${elevationRounded}m`;
+    };
+
+    const updatePortionColors = (divs) => {
+        applyBackgroundColor(divs[8], colorsPortions.Debrou_Sat);
+        applyBackgroundColor(divs[9], colorsPortions.Souff_Sat);
+        applyBackgroundColor(divs[10], colorsPortions.Tronco_Sat);
+        applyBackgroundColor(divs[11], colorsPortions.PY_Sat);
+        applyBackgroundColor(divs[11], colorsPortions.Cotes);
+    };
+
+    // Change class based on mapStyle
     if (mapStyle == 'mapbox://styles/mapbox/satellite-streets-v12') {
-        //ajouter la classe "legend-satellite" à la div d'id "legend" (juste un question de style)
         divLegend.classList.add("legend-satellite");
         divParams.classList.add("params-satellite");
-        
-        for (let i = 0; i < (listeCircuitsVtt.length); i++) {
-            divs[i].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' +  listeCircuitsVtt[listeCircuitsVtt.length-1-i].colorSat + '; height: 3px;');
+
+        for (let i = 0; i < listeCircuitsVtt.length; i++) { 
+            let circuit = listeCircuitsVtt[listeCircuitsVtt.length - 1 - i];
+            let div = divs[i];
+            applyBackgroundColor(div, circuit.colorSat);
+            updateCircuitText(div, circuit);
         }
 
-        for (let i = 0; i < (listeCircuitsMarche.length); i++) {
-            divs[i+listeCircuitsVtt.length].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + listeCircuitsMarche[listeCircuitsMarche.length-1-i].colorSat + '; height: 3px;');
+        for (let i = 0; i < listeCircuitsMarche.length; i++) {
+            applyBackgroundColor(divs[i + listeCircuitsVtt.length], listeCircuitsMarche[listeCircuitsMarche.length - 1 - i].colorSat);
         }
 
-        divs[8].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsPortions.Debrou_Sat + '; height: 3px;');
-        divs[9].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsPortions.Souff_Sat + '; height: 3px;');
-        divs[10].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsPortions.Tronco_Sat + '; height: 3px;');
-        divs[11].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsPortions.PY_Sat + '; height: 3px;');
+        updatePortionColors(divs);
     } else {
-        //enlever la classe "legend-satellite" à la div d'id "legend" (juste un question de style)
         divLegend.classList.remove("legend-satellite");
         divParams.classList.remove("params-satellite");
 
-        for (let i = 0; i < (listeCircuitsVtt.length); i++) {
-            divs[i].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' +  listeCircuitsVtt[listeCircuitsVtt.length-1-i].colorOut + '; height: 3px;');
+        for (let i = 0; i < listeCircuitsVtt.length; i++) { 
+            let circuit = listeCircuitsVtt[listeCircuitsVtt.length - 1 - i];
+            let div = divs[i];
+            applyBackgroundColor(div, circuit.colorOut);
+            updateCircuitText(div, circuit);
         }
 
-        for (let i = 0; i < (listeCircuitsMarche.length); i++) {
-            divs[i+listeCircuitsVtt.length].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + listeCircuitsMarche[listeCircuitsMarche.length-1-i].colorOut + '; height: 3px;');
+        for (let i = 0; i < listeCircuitsMarche.length; i++) {
+            applyBackgroundColor(divs[i + listeCircuitsVtt.length], listeCircuitsMarche[listeCircuitsMarche.length - 1 - i].colorOut);
         }
 
-        divs[8].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsPortions.Debrou_Out + '; height: 3px;');
-        divs[9].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsPortions.Souff_Out + '; height: 3px;');
-        divs[10].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsPortions.Tronco_Out + '; height: 3px;');
-        divs[11].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsPortions.PY_Out + '; height: 3px;');
+        applyBackgroundColor(divs[8], colorsPortions.Debrou_Out);
+        applyBackgroundColor(divs[9], colorsPortions.Souff_Out);
+        applyBackgroundColor(divs[10], colorsPortions.Tronco_Out);
+        applyBackgroundColor(divs[11], colorsPortions.PY_Out);
+        updatePortionColors(divs);
     }
-    divs[11].getElementsByTagName('span')[0].setAttribute('style', 'background-color: ' + colorsPortions.Cotes + '; height: 3px;');
 }
+
 
 function resetAllTraces() {
     let j = 0;
     for (let circuit of Object.values(tabStatesCircuits)) {               // Pour chaque circuit
-        if (circuit[0] == true) {                                                 // Si la trace est activée
+        if (circuit[0] == true) {                                         // Si la trace est activée
             circuit[0] = false;                                           // On remet l'état de la trace à false                              
             cacherDivTexteId();
         }
-        if (type =="all" || (circuit[1] != "circuit8" && circuit[1] != "circuit13" && circuit[1] != "circuit17")) {
+        if (type =="all" || (circuit[1] != "circuitMarche2" && circuit[1] != "circuitMarche1" && circuit[1] != "circuitMarche0")) {
             stateLine(circuit[1], circuit[0], items[j]);                  // On remet l'opacité de la ligne à la normale
         }
         j++;                                                              // Permet de suivre quel élément du tableau tabStatesCircuits on est en train de traiter

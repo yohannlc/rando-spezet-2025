@@ -8,7 +8,7 @@ if (checkboxTypeAll) {
   type = 'vttSansPo';
 }
 
-let checkboxMapStyle = document.getElementById("mapStyleCliq").checked;
+let checkboxMapStyle = document.getElementById("mapStyleCliq")  ;
 
 // Savoir quel est le type d'appareil (pc ou smartphone)
 let smartphone = false; //par défaut, on considère que c'est un pc
@@ -26,29 +26,30 @@ if (smartphone == true) {
 
 // Liste des circuits VTT avec ces coordonnées
 const listeCircuitsVtt = [
-  { id: "circuit48", coords: coordsCircuitVtt48, colorOut: 'rgb(196, 94, 189)', colorSat: 'rgb(196, 94, 189)'},
-  { id: "circuit41", coords: coordsCircuitVtt41, colorOut: 'rgb(255, 143, 0)', colorSat: 'rgb(255, 143, 0)'},
-  { id: "circuit36", coords: coordsCircuitVtt36, colorOut: 'rgb(255, 228, 0)', colorSat: 'rgb(255, 228, 0)'},
-  { id: "circuit28", coords: coordsCircuitVtt28, colorOut: 'rgb(0, 166, 147)', colorSat: 'rgb(49, 215, 107)'},
-  { id: "circuit20", coords: coordsCircuitVtt20, colorOut: 'rgb(30, 196, 233)', colorSat: 'rgb(30, 196, 233)'}
+  { id: "circuitVtt5", coords: coordsCircuitVtt5, length: metaDatasCircuitVtt5.longueur, elevation: metaDatasCircuitVtt5.denivele, colorOut: 'rgb(74, 74, 74)', colorSat: 'rgb(255, 255, 255)'},
+  { id: "circuitVtt4", coords: coordsCircuitVtt4, length: metaDatasCircuitVtt4.longueur, elevation: metaDatasCircuitVtt4.denivele, colorOut: 'rgb(180, 35, 35)', colorSat: 'rgb(180, 35, 35)'},
+  { id: "circuitVtt3", coords: coordsCircuitVtt3, length: metaDatasCircuitVtt3.longueur, elevation: metaDatasCircuitVtt3.denivele, colorOut: 'rgb(139, 17, 121)', colorSat: 'rgb(196, 94, 189)'},
+  { id: "circuitVtt2", coords: coordsCircuitVtt2, length: metaDatasCircuitVtt2.longueur, elevation: metaDatasCircuitVtt2.denivele, colorOut: 'rgb(255, 143, 0)', colorSat: 'rgb(255, 143, 0)'},
+  { id: "circuitVtt1", coords: coordsCircuitVtt1, length: metaDatasCircuitVtt1.longueur, elevation: metaDatasCircuitVtt1.denivele, colorOut: 'rgb(255, 228, 0)', colorSat: 'rgb(255, 228, 0)'},
+  { id: "circuitVtt0", coords: coordsCircuitVtt0, length: metaDatasCircuitVtt0.longueur, elevation: metaDatasCircuitVtt0.denivele, colorOut: 'rgb(0, 166, 147)', colorSat: 'rgb(49, 215, 107)'},
 ];
-
 const listeCircuitsMarche = [
-  { id: "circuit17", coords: coordsCircuitMarche17, colorOut: 'rgb(0, 166, 147)', colorSat: 'rgb(98, 117, 230)'},
-  { id: "circuit13", coords: coordsCircuitMarche13, colorOut: 'rgb(129, 97, 154)', colorSat: 'rgb(255, 0, 120)'},
-  { id: "circuit8", coords: coordsCircuitMarche8, colorOut: 'rgb(236, 75, 75)', colorSat: 'rgb(235, 181, 150)'}
+  { id: "circuitMarche0", coords: coordsCircuitMarche0, colorOut: 'rgb(0, 166, 147)', colorSat: 'rgb(98, 117, 230)'},
+  { id: "circuitMarche1", coords: coordsCircuitMarche1, colorOut: 'rgb(129, 97, 154)', colorSat: 'rgb(255, 0, 120)'},
+  { id: "circuitMarche2", coords: coordsCircuitMarche2, colorOut: 'rgb(236, 75, 75)', colorSat: 'rgb(235, 181, 150)'}
 ];
 
 let tabStatesCircuits = {
-  stateCircuit48: [false, listeCircuitsVtt[0].id],
-  stateCircuit41: [false, listeCircuitsVtt[1].id],
-  stateCircuit36: [false, listeCircuitsVtt[2].id],
-  stateCircuit28: [false, listeCircuitsVtt[3].id],
-  stateCircuit20: [false, listeCircuitsVtt[4].id],
+  stateCircuitVtt0: [false, listeCircuitsVtt[0].id],
+  stateCircuitVtt1: [false, listeCircuitsVtt[1].id],
+  stateCircuitVtt2: [false, listeCircuitsVtt[2].id],
+  stateCircuitVtt3: [false, listeCircuitsVtt[3].id],
+  stateCircuitVtt4: [false, listeCircuitsVtt[4].id],
+  stateCircuitVtt5: [false, listeCircuitsVtt[5].id],
 
-  stateCircuit17: [false, listeCircuitsMarche[0].id],
-  stateCircuit13: [false, listeCircuitsMarche[1].id],
-  stateCircuit8: [false, listeCircuitsMarche[2].id]
+  stateCircuitMarche0: [false, listeCircuitsMarche[0].id],
+  stateCircuitMarche1: [false, listeCircuitsMarche[1].id],
+  stateCircuitMarche2: [false, listeCircuitsMarche[2].id]
 };
 
 const lineWidthsCircuit = {

@@ -1,5 +1,5 @@
-// Coordonnees du circuit Marche 8
-let coordsCircuitMarche8 = [
+// Coordonnees du circuit Marche 2
+let coordsCircuitMarche2 = [
   [-3.713736729696393, 48.190540513023734],
   [-3.713657855987549, 48.19056280888617],
   [-3.7131428718566895, 48.19071292877197],
@@ -199,8 +199,8 @@ let coordsCircuitMarche8 = [
   [-3.7137480452656746, 48.19053732790053],
 ];
 
-// Coordonnees du circuit Marche 13
-let coordsCircuitMarche13 = [
+// Coordonnees du circuit Marche 1
+let coordsCircuitMarche1 = [
   [-3.713736729696393, 48.190540513023734],
   [-3.713657855987549, 48.19056280888617],
   [-3.7131428718566895, 48.19071292877197],
@@ -553,8 +553,8 @@ let coordsCircuitMarche13 = [
   [-3.7137480452656746, 48.19053732790053],
 ];
 
-// Coordonnees du circuit Marche 17
-let coordsCircuitMarche17 = [
+// Coordonnees du circuit Marche 0
+let coordsCircuitMarche0 = [
   [-3.713736729696393, 48.190540513023734],
   [-3.713657855987549, 48.19056280888617],
   [-3.7131428718566895, 48.19071292877197],
