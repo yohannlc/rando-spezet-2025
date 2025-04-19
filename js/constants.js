@@ -26,12 +26,12 @@ if (smartphone == true) {
 
 // Liste des circuits VTT avec ces coordonnées
 const listeCircuitsVtt = [
-  { id: "circuitVtt5", coords: coordsCircuitVtt5, length: metaDatasCircuitVtt5.longueur, elevation: metaDatasCircuitVtt5.denivele, colorOut: 'rgb(74, 74, 74)', colorSat: 'rgb(255, 255, 255)'},
-  { id: "circuitVtt4", coords: coordsCircuitVtt4, length: metaDatasCircuitVtt4.longueur, elevation: metaDatasCircuitVtt4.denivele, colorOut: 'rgb(180, 35, 35)', colorSat: 'rgb(180, 35, 35)'},
-  { id: "circuitVtt3", coords: coordsCircuitVtt3, length: metaDatasCircuitVtt3.longueur, elevation: metaDatasCircuitVtt3.denivele, colorOut: 'rgb(139, 17, 121)', colorSat: 'rgb(196, 94, 189)'},
-  { id: "circuitVtt2", coords: coordsCircuitVtt2, length: metaDatasCircuitVtt2.longueur, elevation: metaDatasCircuitVtt2.denivele, colorOut: 'rgb(255, 143, 0)', colorSat: 'rgb(255, 143, 0)'},
-  { id: "circuitVtt1", coords: coordsCircuitVtt1, length: metaDatasCircuitVtt1.longueur, elevation: metaDatasCircuitVtt1.denivele, colorOut: 'rgb(255, 228, 0)', colorSat: 'rgb(255, 228, 0)'},
-  { id: "circuitVtt0", coords: coordsCircuitVtt0, length: metaDatasCircuitVtt0.longueur, elevation: metaDatasCircuitVtt0.denivele, colorOut: 'rgb(0, 166, 147)', colorSat: 'rgb(49, 215, 107)'},
+  { id: "circuitVtt5", coords: coordsCircuitVtt5, length: metaDatasCircuitVtt5.longueur, elevation: metaDatasCircuitVtt5.denivele, colorOut: 'rgb(34, 34, 34)', colorSat: 'rgb(255, 255, 255)'},
+  { id: "circuitVtt4", coords: coordsCircuitVtt4, length: metaDatasCircuitVtt4.longueur, elevation: metaDatasCircuitVtt4.denivele, colorOut: 'rgb(255, 7, 7)', colorSat: 'rgb(255, 7, 7)'},
+  { id: "circuitVtt3", coords: coordsCircuitVtt3, length: metaDatasCircuitVtt3.longueur, elevation: metaDatasCircuitVtt3.denivele, colorOut: 'rgb(196, 94, 189)', colorSat: 'rgb(196, 94, 189)'},
+  { id: "circuitVtt2", coords: coordsCircuitVtt2, length: metaDatasCircuitVtt2.longueur, elevation: metaDatasCircuitVtt2.denivele, colorOut: 'rgb(255, 228, 0)', colorSat: 'rgb(255, 228, 0)'},
+  { id: "circuitVtt1", coords: coordsCircuitVtt1, length: metaDatasCircuitVtt1.longueur, elevation: metaDatasCircuitVtt1.denivele, colorOut: 'rgb(6, 167, 199)', colorSat: 'rgb(6, 167, 199)'},
+  { id: "circuitVtt0", coords: coordsCircuitVtt0, length: metaDatasCircuitVtt0.longueur, elevation: metaDatasCircuitVtt0.denivele, colorOut: 'rgb(0, 153, 36)', colorSat: 'rgb(49, 215, 107)'},
 ];
 const listeCircuitsMarche = [
   { id: "circuitMarche0", coords: coordsCircuitMarche0, colorOut: 'rgb(0, 166, 147)', colorSat: 'rgb(98, 117, 230)'},
@@ -56,7 +56,7 @@ const lineWidthsCircuit = {
   All_Out: 2.5,
   All_Sat: 3,
   NotAll_Out: 5,
-  NotAll_Sat: 3 // NotAll_Sat: 3 pour screen sinon 4
+  NotAll_Sat: 4 // NotAll_Sat: 3 pour screen sinon 4
 };
 
 const lineWidthsCircuitByZoom = {
@@ -186,8 +186,8 @@ const circlesRadius = {
 };
 
 const colorsRavito = {
-  out: "rgb(247, 34, 34)",
-  sat: "rgb(247, 34, 34)"
+  out: "rgb(247, 130, 34)",
+  sat: "rgb(0, 72, 255)"
 }
 
 if (checkboxMapStyle) {
