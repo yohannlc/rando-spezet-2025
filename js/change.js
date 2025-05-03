@@ -2,7 +2,7 @@
 function setOnlyOneTrace(circuitName, circuitState, circuitItem) {    
     resetAllTraces();
     stateLine(circuitName, circuitState, circuitItem);
-    
+
     for (let i of Object.values(tabStatesCircuits)) { // Pour chaque circuit
         if (i[1] != circuitName) { // Si le circuit n'est pas celui en argument
             if (!(type !="all" && (i[1] == "circuitMarche2" || i[1] == "circuitMarche1" || i[1] == "circuitMarche0"))) {
@@ -82,6 +82,7 @@ function resetAllTraces() {
             circuit[0] = false;                                           // On remet l'état de la trace à false                              
             cacherDivTexteId();
         }
+        // Si le type est "all" (donc VTT + marche) ou que le circuit actuel n'est pas un circuit marche
         if (type =="all" || (circuit[1] != "circuitMarche2" && circuit[1] != "circuitMarche1" && circuit[1] != "circuitMarche0")) {
             stateLine(circuit[1], circuit[0], items[j]);                  // On remet l'opacité de la ligne à la normale
         }
@@ -213,18 +214,17 @@ function changeTypeAll(checkboxTypeAll) {
     if (checkboxTypeAll.checked) {
         type = 'all';
         addCircuitsMarche();
-        addFlechesCircuitsMarche();
+        // addFlechesCircuitsMarche();
         addRavitosMarche();
     } else {
         type = 'notAll';
         removeCircuitsMarche();
-        removeFlecheCircuitsMarche();
+        // removeFlecheCircuitsMarche();
         removeRavitosMarche();
     }
 }
 
 function changeType(checkboxType) {
-    console.log('Change type');
     if (checkboxType.checked) {
         typePo = 'vttAvecPo';
         addPortions();

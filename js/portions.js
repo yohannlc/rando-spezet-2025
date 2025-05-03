@@ -41,7 +41,7 @@ function drawPortion(portionName, portionType, portionCoordinates, portionLineWi
       //portionsClick(portionName);
     }
 }
-  
+
 function addPortions() {
   // Boucle for sur listePortions pour drawPortions
   for (let i = 0; i < listePortions.length; i++) {

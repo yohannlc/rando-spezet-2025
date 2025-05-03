@@ -62,7 +62,6 @@ function changeMapStyle() {
   // Attente de changement de la valeur currentZoom = map.getZoom();
   map.on('zoomend', function() {
     var currentZoom = map.getZoom();
-    console.log(currentZoom);
     changeSelonZoom(currentZoom);
   });
 

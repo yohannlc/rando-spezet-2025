@@ -15,51 +15,55 @@
 //   setTimeout(hidePopup, 8000);
 // });
 
-// Enregistrer les éléments de la légende dans une variable
-const legendItemsVTT = document.querySelectorAll('#legendCircuitsVTT div');
-
 let items = [];
-for (let i of legendItemsVTT) {
-  items.push(i);
+
+addEventListenerLegendVTT();
+addEventListenerLegendMarche();
+
+function addEventListenerLegendVTT() {
+  // Enregistrer les éléments de la légende dans une variable
+  const legendItemsVTT = document.querySelectorAll('#legendCircuitsVTT div');
+
+  for (let i of legendItemsVTT) {
+    items.push(i);
+  }
+
+  // Ajouter un événement de clic à chaque élément de la légende
+  legendItemsVTT.forEach(function(item, index) {
+    item.addEventListener('click', function() {    
+      switch(index) {
+        case 0:
+          tabStatesCircuits.stateCircuitVtt0[0] = !tabStatesCircuits.stateCircuitVtt0[0];
+          setOnlyOneTrace('circuitVtt0', tabStatesCircuits.stateCircuitVtt0[0], item);
+          break;
+        case 1:
+          tabStatesCircuits.stateCircuitVtt1[0] = !tabStatesCircuits.stateCircuitVtt1[0];
+          setOnlyOneTrace('circuitVtt1', tabStatesCircuits.stateCircuitVtt1[0], item);
+          break;
+        case 2:
+          tabStatesCircuits.stateCircuitVtt2[0] = !tabStatesCircuits.stateCircuitVtt2[0];
+          setOnlyOneTrace('circuitVtt2', tabStatesCircuits.stateCircuitVtt2[0], item);
+          break;
+        case 3:
+          tabStatesCircuits.stateCircuitVtt3[0] = !tabStatesCircuits.stateCircuitVtt3[0];
+          setOnlyOneTrace('circuitVtt3', tabStatesCircuits.stateCircuitVtt3[0], item);
+          break;
+        case 4:
+          tabStatesCircuits.stateCircuitVtt4[0] = !tabStatesCircuits.stateCircuitVtt4[0];
+          setOnlyOneTrace('circuitVtt4', tabStatesCircuits.stateCircuitVtt4[0], item);
+          break;
+        case 5:
+          tabStatesCircuits.stateCircuitVtt5[0] = !tabStatesCircuits.stateCircuitVtt5[0];
+          setOnlyOneTrace('circuitVtt5', tabStatesCircuits.stateCircuitVtt5[0], item);
+          break;
+        default:
+          return;
+      }
+    });
+  });
 }
 
-// Ajouter un événement de clic à chaque élément de la légende
-legendItemsVTT.forEach(function(item, index) {
-  item.addEventListener('click', function() {    
-    switch(index) {
-      case 0:
-        tabStatesCircuits.stateCircuitVtt0[0] = !tabStatesCircuits.stateCircuitVtt0[0];
-        setOnlyOneTrace('circuitVtt0', tabStatesCircuits.stateCircuitVtt0[0], item);
-        break;
-      case 1:
-        tabStatesCircuits.stateCircuitVtt1[0] = !tabStatesCircuits.stateCircuitVtt1[0];
-        setOnlyOneTrace('circuitVtt1', tabStatesCircuits.stateCircuitVtt1[0], item);
-        break;
-      case 2:
-        tabStatesCircuits.stateCircuitVtt2[0] = !tabStatesCircuits.stateCircuitVtt2[0];
-        setOnlyOneTrace('circuitVtt2', tabStatesCircuits.stateCircuitVtt2[0], item);
-        break;
-      case 3:
-        tabStatesCircuits.stateCircuitVtt3[0] = !tabStatesCircuits.stateCircuitVtt3[0];
-        setOnlyOneTrace('circuitVtt3', tabStatesCircuits.stateCircuitVtt3[0], item);
-        break;
-      case 4:
-        tabStatesCircuits.stateCircuitVtt4[0] = !tabStatesCircuits.stateCircuitVtt4[0];
-        setOnlyOneTrace('circuitVtt4', tabStatesCircuits.stateCircuitVtt4[0], item);
-        break;
-      case 5:
-        tabStatesCircuits.stateCircuitVtt5[0] = !tabStatesCircuits.stateCircuitVtt5[0];
-        setOnlyOneTrace('circuitVtt5', tabStatesCircuits.stateCircuitVtt5[0], item);
-        break;
-      default:
-        return;
-    }
-  });
-});
-
-// Si le type est all
-
-if (type === "all") {
+function addEventListenerLegendMarche() {
   const legendItemsMarche = document.querySelectorAll('#legendCircuitsMarche div');
 
   for (let i of legendItemsMarche) {
