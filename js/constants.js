@@ -1,4 +1,4 @@
-let typePo = 'vttSansPo'; // état initial : on affiche les circuits VTT sans portions
+let typePortions = 'vttSansPo'; // état initial : on affiche les circuits VTT sans portions
 
 let checkboxTypeAll = document.getElementById("typeAllCliq").checked;
 let type;
@@ -8,7 +8,7 @@ if (checkboxTypeAll) {
   type = 'vttSansPo';
 }
 
-let checkboxMapStyle = document.getElementById("mapStyleCliq")  ;
+let checkboxMapStyle = document.getElementById("mapStyleCheckbox")  ;
 
 // Savoir quel est le type d'appareil (pc ou smartphone)
 let smartphone = false; //par défaut, on considère que c'est un pc
@@ -34,9 +34,9 @@ const listeCircuitsVtt = [
   { id: "circuitVtt0", coords: coordsCircuitVtt0, length: metaDatasCircuitVtt0.longueur, elevation: metaDatasCircuitVtt0.denivele, colorOut: 'rgb(0, 153, 36)', colorSat: 'rgb(49, 215, 107)'},
 ];
 const listeCircuitsMarche = [
-  { id: "circuitMarche0", coords: coordsCircuitMarche0, colorOut: 'rgb(0, 166, 147)', colorSat: 'rgb(98, 117, 230)'},
-  { id: "circuitMarche1", coords: coordsCircuitMarche1, colorOut: 'rgb(129, 97, 154)', colorSat: 'rgb(255, 0, 120)'},
-  { id: "circuitMarche2", coords: coordsCircuitMarche2, colorOut: 'rgb(236, 75, 75)', colorSat: 'rgb(235, 181, 150)'}
+  { id: "circuitMarche2", coords: coordsCircuitMarche2, colorOut: 'rgb(236, 121, 75)', colorSat: 'rgb(236, 121, 75)'},
+  { id: "circuitMarche1", coords: coordsCircuitMarche1, colorOut: 'rgb(174, 69, 255)', colorSat: 'rgb(174, 69, 255)'},
+  { id: "circuitMarche0", coords: coordsCircuitMarche0, colorOut: 'rgb(58, 44, 189)', colorSat: 'rgb(58, 44, 189)'}
 ];
 
 let tabStatesCircuits = {
@@ -76,7 +76,7 @@ let lineOpacityCircuit = 1;
 let lineOpacityBackCircuit = 0.15;
 let offsetLineWithCircuit = 1.2;
 
-if (checkboxMapStyle) {
+if (checkboxMapStyle == true) {
   lineWidthCircuit = type == 'all' ? lineWidthsCircuit.All_Sat : lineWidthsCircuit.NotAll_Sat;
   offset = type == 'all' ? offsetsCircuits.All_Sat : offsetsCircuits.NotAll_Sat;
 } else {
@@ -139,7 +139,7 @@ const colorsPortions = {
 lineOpacityPortions_Out = 0.6;
 lineOpacityPortions_Sat = 0.8;
 
-if (checkboxMapStyle) {
+if (checkboxMapStyle == true) {
   colorTronco = colorsPortions.Tronco_Sat;
   lineOpacityPortions = lineOpacityPortions_Sat;
 } else {
@@ -186,11 +186,11 @@ const circlesRadius = {
 };
 
 const colorsRavito = {
-  out: "rgb(247, 130, 34)",
-  sat: "rgb(0, 72, 255)"
+  sat: "rgb(247, 130, 34)",
+  out: "rgb(0, 72, 255)"
 }
 
-if (checkboxMapStyle) {
+if (checkboxMapStyle == true) {
   colorRavito = colorsRavito.sat;
   circleRadius = circlesRadius.sat;
 } else {

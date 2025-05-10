@@ -75,16 +75,16 @@ function addEventListenerLegendMarche() {
     item.addEventListener('click', function() {    
       switch(index) {
         case 0:
-          tabStatesCircuits.stateCircuitMarche2[0] = !tabStatesCircuits.stateCircuitMarche2[0];
-          setOnlyOneTrace('circuitMarche2', tabStatesCircuits.stateCircuitMarche2[0], item);
+          tabStatesCircuits.stateCircuitMarche0[0] = !tabStatesCircuits.stateCircuitMarche0[0];
+          setOnlyOneTrace('circuitMarche0', tabStatesCircuits.stateCircuitMarche0[0], item);
           break;
         case 1:
           tabStatesCircuits.stateCircuitMarche1[0] = !tabStatesCircuits.stateCircuitMarche1[0];
           setOnlyOneTrace('circuitMarche1', tabStatesCircuits.stateCircuitMarche1[0], item);
           break;
         case 2:
-          tabStatesCircuits.stateCircuitMarche0[0] = !tabStatesCircuits.stateCircuitMarche0[0];
-          setOnlyOneTrace('circuitMarche0', tabStatesCircuits.stateCircuitMarche0[0], item);
+          tabStatesCircuits.stateCircuitMarche2[0] = !tabStatesCircuits.stateCircuitMarche2[0];
+          setOnlyOneTrace('circuitMarche2', tabStatesCircuits.stateCircuitMarche2[0], item);
           break;
         default:
           return;

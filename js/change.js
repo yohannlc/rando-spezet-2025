@@ -12,7 +12,7 @@ function setOnlyOneTrace(circuitName, circuitState, circuitItem) {
     }
 }
 
-function changeLegend() {
+function updateLegend(mapStyle) {
     const divLegend = document.getElementById("divLegendId");
     const divParams = document.getElementById("divParamsId");
     var divs = document.getElementsByClassName('legend-circuit');
@@ -26,7 +26,12 @@ function changeLegend() {
         div.innerHTML = `<span style="background-color: ${circuit.colorOut}; height: 3px;"></span> ${circuit.length} km &#8599;${elevationRounded}m`;
     };
 
+    const updatePointsColors = (color) => {
+        document.getElementById("legendPoints").getElementsByTagName('span')[0].setAttribute('style', `background-color: ${color};`);
+    }
+
     const updatePortionColors = (divs) => {
+        /!/ // à changer, mettre les numeros de divs en dynamique selon la longueur des circuits
         applyBackgroundColor(divs[8], colorsPortions.Debrou_Sat);
         applyBackgroundColor(divs[9], colorsPortions.Souff_Sat);
         applyBackgroundColor(divs[10], colorsPortions.Tronco_Sat);
@@ -34,23 +39,19 @@ function changeLegend() {
         applyBackgroundColor(divs[11], colorsPortions.Cotes);
     };
 
-    // Change class based on mapStyle
-    if (mapStyle == 'mapbox://styles/mapbox/satellite-streets-v12') {
+    if (mapStyle == "satellite") {
         divLegend.classList.add("legend-satellite");
         divParams.classList.add("params-satellite");
 
         for (let i = 0; i < listeCircuitsVtt.length; i++) { 
-            let circuit = listeCircuitsVtt[listeCircuitsVtt.length - 1 - i];
-            let div = divs[i];
-            applyBackgroundColor(div, circuit.colorSat);
-            updateCircuitText(div, circuit);
+            applyBackgroundColor( divs[i], listeCircuitsVtt[listeCircuitsVtt.length - 1 - i].colorSat);
         }
 
         for (let i = 0; i < listeCircuitsMarche.length; i++) {
             applyBackgroundColor(divs[i + listeCircuitsVtt.length], listeCircuitsMarche[listeCircuitsMarche.length - 1 - i].colorSat);
         }
 
-        updatePortionColors(divs);
+        updatePointsColors(colorsRavito.sat);
     } else {
         divLegend.classList.remove("legend-satellite");
         divParams.classList.remove("params-satellite");
@@ -66,14 +67,10 @@ function changeLegend() {
             applyBackgroundColor(divs[i + listeCircuitsVtt.length], listeCircuitsMarche[listeCircuitsMarche.length - 1 - i].colorOut);
         }
 
-        applyBackgroundColor(divs[8], colorsPortions.Debrou_Out);
-        applyBackgroundColor(divs[9], colorsPortions.Souff_Out);
-        applyBackgroundColor(divs[10], colorsPortions.Tronco_Out);
-        applyBackgroundColor(divs[11], colorsPortions.PY_Out);
-        updatePortionColors(divs);
+        // console.log(colorsRavito.out);
+        updatePointsColors(colorsRavito.out);
     }
 }
-
 
 function resetAllTraces() {
     let j = 0;
@@ -135,7 +132,6 @@ function changeLineWidthCircuit(lineWidth) {
     }
 }
 
-
 // Gérer l'affichage de la popup de texte
 function afficherDivTexteId(portionName) {
     // Sépare le mot en lettre et en chiffre
@@ -173,9 +169,8 @@ function cacherDivTexteId() { // Fonction pour cacher
     divTexteId.classList.remove("show");
 }
 
-function changeConstants() {
-    if (mapStyle == 'mapbox://styles/mapbox/outdoors-v12') {;
-        
+function updateConstantsByMapStyle(mapStyle) {
+    if (mapStyle == "outdoor") {;
         if (type == 'all') {
             lineWidthCircuit = lineWidthsCircuit.All_Out;
             offset = offsetsCircuits.All_Out;
@@ -190,8 +185,7 @@ function changeConstants() {
         colorTronco = colorsPortions.Tronco_Out;
 
         colorRavito = colorsRavito.out;
-    } else { // mapbox://styles/mapbox/satellite-streets-v12
-
+    } else {
         if (type == 'all') {
             lineWidthCircuit = lineWidthsCircuit.All_Sat;
             offset = offsetsCircuits.All_Sat;
@@ -210,7 +204,7 @@ function changeConstants() {
 }
 
 // Fonction qui change le type de d'affichage
-function changeTypeAll(checkboxTypeAll) {
+function toggleMarcheDisplay(checkboxTypeAll) {
     if (checkboxTypeAll.checked) {
         type = 'all';
         addCircuitsMarche();
@@ -224,13 +218,13 @@ function changeTypeAll(checkboxTypeAll) {
     }
 }
 
-function changeType(checkboxType) {
-    if (checkboxType.checked) {
-        typePo = 'vttAvecPo';
+function togglePortionsDisplay(checkbox) {
+    if (checkbox.checked) {
+        typePortions = 'vttAvecPo';
         addPortions();
         addLegendPortions();
     } else {
-        typePo = 'vttSansPo';
+        typePortions = 'vttSansPo';
         removePortions();
         removeLegendPortions();
     }
@@ -246,8 +240,8 @@ function changeCheckboxCircCliq() {
 }
 
 function addLegendPortions() {
-    const divTexteId = document.getElementById("legendPortions");
-    divTexteId.classList.add("show");
+    const textPortionsDivId = document.getElementById("legendPortions");
+    textPortionsDivId.classList.add("show");
 }
 
 function removeLegendPortions() {
@@ -276,4 +270,4 @@ function circuitsClick(circuitName, map) {
         }
         }
     });
-  }
+}

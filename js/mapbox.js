@@ -1,12 +1,45 @@
 let map;
-changeMapStyle();
+updateMapStyle();
+
+// Fonction pour changer le style de la map
+function updateMapStyle() {
+  let checkboxMapStyle = document.getElementById("mapStyleCheckbox").checked;
+
+  if (checkboxMapStyle == true) {
+    mapStyleUrl = "mapbox://styles/yohannlc/cm8hha9d9002301s89a41db9x";
+    mapStyle = "satellite"
+  } else {
+    mapStyleUrl = "mapbox://styles/yohannlc/cm8hbqqxj003t01s57dlx3iya";
+    mapStyle = "outdoor"
+  }
+
+  // Si on change de carte en cours d'éxécution, il faut supprimer l'ancienne, sinon, c'est qu'on est au 1er chargement et on a rien à remove.
+  if (map != undefined) {
+    map.remove();
+  }
+
+  map = createMap(mapStyleUrl);
+  updateConstantsByMapStyle(mapStyle);
+  updateLegend(mapStyle);
+
+  // Attente de changement de la valeur currentZoom = map.getZoom();
+  map.on('zoomend', function() {
+    var currentZoom = map.getZoom();
+    changeSelonZoom(currentZoom);
+  });
+
+  // Lors d'un click n'importe où sur la carte
+  map.on('click', function(e) {
+    resetAllTraces();
+  });
+}
 
 // Création de la map
-function createMap(myMapStyle) {
+function createMap(myMapStyleUrl) {
   mapboxgl.accessToken = 'pk.eyJ1IjoieW9oYW5ubGMiLCJhIjoiY2xnczI4cHJ1MGF4dDNsb2NienBja3pxbCJ9.pmfEZTINyfbOowGB0I77QA';
   let map = new mapboxgl.Map({
     container: 'map',
-    style: myMapStyle,
+    style: myMapStyleUrl,
     center: [-3.7151733269314533,48.177434347124205],
     zoom: zoomStart,
   });
@@ -15,9 +48,6 @@ function createMap(myMapStyle) {
   if (smartphone != true) {
     map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
     map.addControl(new mapboxgl.ScaleControl());
-  } else {
-    // map.addControl(new mapboxgl.FullscreenControl(), 'bottom-right');
-    // map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
   }
   map.addControl(new mapboxgl.NavigationControl(), 'top-right');
 
@@ -33,42 +63,10 @@ function createMap(myMapStyle) {
     if (type == "all") {
       addFlechesCircuitsMarche();
     }
-    // if (typePo == "vttAvecPo") {addPortions();}
+    // if (tooglePortions == "vttAvecPo") {addPortions();}
   });
 
   return map;
-}
-
-// Fonction pour changer le style de la map
-function changeMapStyle() {
-  let checkboxMapStyle = document.getElementById("mapStyleCliq").checked;
-  //Si la checkbox est cochée mapStyleCliq, on change la carte pour satellite, sinon on change pour classique
-  if (checkboxMapStyle == true) {
-    mapStyleUrl = "mapbox://styles/yohannlc/cm8hha9d9002301s89a41db9x";
-    mapStyle = "satellite"
-  } else {
-    mapStyleUrl = "mapbox://styles/yohannlc/cm8hbqqxj003t01s57dlx3iya";
-    mapStyle = "outdoor"
-  }
-  if (map != undefined) {
-    map.remove();
-  }
-  map = createMap(mapStyleUrl);
-  changeLegend();
-  changeConstants();
-
-
-
-  // Attente de changement de la valeur currentZoom = map.getZoom();
-  map.on('zoomend', function() {
-    var currentZoom = map.getZoom();
-    changeSelonZoom(currentZoom);
-  });
-
-  // Lors d'un click n'importe où sur la carte
-  map.on('click', function(e) {
-    resetAllTraces();
-  });
 }
 
 /*
