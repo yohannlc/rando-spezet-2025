@@ -37,12 +37,12 @@ function addRavitosVTT() {
 
 function addRavitosMarche() {
   addPoint('ravitoValentin', 'ravito', ravitoValentin, colorRavito);
-  addPoint('ravitoMarion', 'ravito', ravitoMarion, colorRavito);
+  addPoint('ravitoChapelle', 'ravito', ravitoChapelle, colorRavito);
 }
 
 function removeRavitosMarche() {
   map.removeLayer('ravitoValentin');
   map.removeSource('ravitoValentin');
-  map.removeLayer('ravitoMarion');
-  map.removeSource('ravitoMarion');
+  map.removeLayer('ravitoChapelle');
+  map.removeSource('ravitoChapelle');
 }
