@@ -45,7 +45,7 @@ def gpx_to_js(gpx_file, js_file, circuit, n):
     print(f"Les coordonnées du circuit {circuit} ont été ajoutées avec un dénivelé de {denivele} m.")
 
 if __name__ == "__main__":
-    circuits = ["18", "28", "32", "35", "41", "50"]
+    circuits = ["18", "28", "32", "37", "42", "50"]
     output_js_file = "../js/coordsCircuitsVtt.js"
 
     if os.path.exists(output_js_file):

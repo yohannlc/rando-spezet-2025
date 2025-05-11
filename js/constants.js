@@ -68,8 +68,8 @@ const lineWidthsCircuitByZoom = {
 const offsetsCircuits = {
   All_Out: 0.00006,
   All_Sat: 0.00006,
-  NotAll_Out: 0.00005,
-  NotAll_Sat: 0.00005 // NotAll_Sat: 0.0002 pour screen sinon 0.00005
+  NotAll_Out: 0.00004,
+  NotAll_Sat: 0.00004 // NotAll_Sat: 0.0002 pour screen sinon 0.00005
 };
 
 let lineOpacityCircuit = 1;
