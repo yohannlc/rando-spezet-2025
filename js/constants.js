@@ -150,9 +150,9 @@ if (checkboxMapStyle == true) {
 const descriptions = {
   "verger1": "Faire les côtés avec une débroussailleuse",
   "verger2": "Faire les côtés avec une débroussailleuse",
-  "ravitoTerrePleinBoisBernard": "22 - 12<sup>e</sup> km<br>29 - 13<sup>e</sup> km<br>35 - 13<sup>e</sup> km<br>41 - 13<sup>e</sup> km<br>50 - 13<sup>e</sup> km",
-  "ravitoBallTrap": "35 - 20<sup>e</sup> km<br>41 - 21<sup>e</sup> km<br>50 - 26<sup>e</sup> km",
-  "ravitoTrevillyIzela": "29 - 21<sup>e</sup> km<br>35 - 27<sup>e</sup> km<br>41 - 31<sup>e</sup> km<br>50 - 39<sup>e</sup> km",
+  "ravitoTerrePleinBoisBernard": "28 - 13<sup>e</sup> km<br>32 - 14<sup>e</sup> km<br>37 - 14<sup>e</sup> km<br>42 - 14<sup>e</sup> km<br>50 - 14<sup>e</sup> km",
+  "ravitoBallTrap": "37 - 21<sup>e</sup> km<br>42 - 23<sup>e</sup> km<br>50 - 26<sup>e</sup> km",
+  "ravitoTrevillyIzela": "18 - 10<sup>e</sup> km<br>28 - 21<sup>e</sup> km<br>32 - 23<sup>e</sup> km<br>37 - 29<sup>e</sup> km<br>42 - 33<sup>e</sup> km<br>50 - 39<sup>e</sup> km",
 };
 
 const listePortions = [
